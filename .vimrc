@@ -24,9 +24,10 @@ set incsearch " show partial matches
 set ignorecase " Ignore uppercase
 
 " Format
-set textwidth=80 " wrap text at 80 characters
+"set textwidth=80 " wrap text at 80 characters
 au Filetype * set fo-=c fo-=r fo-=o " do not copy comment symbol
 au Filetype gitcommit setlocal textwidth=72 " wrap text at 72 characters for gitcommit
+au Filetype c,cpp setlocal textwidth=80
 
 " Plugins
 """ auto install plugins
