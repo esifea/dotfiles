@@ -22,12 +22,14 @@ set shiftround " use multiple shiftwidth when indening with '<' and '>'
 set hls " highlight search terms
 set incsearch " show partial matches
 set ignorecase " Ignore uppercase
+hi Search ctermfg=Red
+hi Comment ctermfg=DarkGrey
 
 " Format
-"set textwidth=80 " wrap text at 80 characters
 au Filetype * set fo-=c fo-=r fo-=o " do not copy comment symbol
 au Filetype gitcommit setlocal textwidth=72 " wrap text at 72 characters for gitcommit
-au Filetype c,cpp setlocal textwidth=80
+au BufNewFile,BufRead *.tpp set filetype=cpp
+au Filetype c,cpp setlocal textwidth=80 formatoptions+=t " wrap text at 80 characters for c, cpp
 
 " Plugins
 """ auto install plugins
