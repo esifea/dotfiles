@@ -125,6 +125,10 @@ prompt_dir() {
 # Remove duplicates from $PATH
 if [[ -x /usr/bin/awk ]]; then
   export PATH="$(echo "$PATH" | /usr/bin/awk 'BEGIN { RS=":"; } { sub(sprintf("%c$", 10), ""); if (A[$0]) {} else { A[$0]=1; printf(((NR==1) ?"" : ":") $0) }}')"
+  # If not running interactively, stop here
+  if [[ $- != *i* ]]; then
+    return
+  fi
   echo $PATH
 else
   echo "AWK is not located at /usr/bin/awk" # for the truly paranoid
